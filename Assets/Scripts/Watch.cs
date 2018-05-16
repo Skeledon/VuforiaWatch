@@ -1,0 +1,38 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using System.Linq;
+
+public class Watch : MonoBehaviour
+{
+    public float TouchRescaleFactor = .0001f;
+    public GameObject MyGUI;
+    public Renderer MyRenderer;
+
+    // Update is called once per frame
+    void Update ()
+    {
+        HandleInput();
+        HandleUI();
+    }
+
+    private void HandleInput()
+    {
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        {
+            // Get movement of the finger since last frame
+            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+            transform.localScale += new Vector3(1, 1, 1) * TouchRescaleFactor * touchDeltaPosition.y;
+            if (transform.localScale.x < .01f)
+                transform.localScale = new Vector3(.01f, .01f, .01f);
+        }
+
+    }
+
+    private void HandleUI()
+    {
+        MyGUI.SetActive(!MyRenderer.enabled);
+    }
+
+}

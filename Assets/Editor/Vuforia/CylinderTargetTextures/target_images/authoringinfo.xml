@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VuforiaUnityInfo version="7.0">
+    <TargetSet version="5.0" toolVersion="2.7.4">
+        <CylinderTarget name="pietreLarghe" version="3.0" targetId="bc0983733e75462ab64940048a540716" sideLength="14.990000" topDiameter="10.657000" bottomDiameter="10.657000" sideImage="pietreLarghe.Body_scaled.jpg"/>
+        <CylinderTarget name="pietre" version="3.0" targetId="a0c45aba7f344465adc33745b1b67593" sideLength="5.010000" topDiameter="10.657000" bottomDiameter="10.657000" sideImage="pietre.Body_scaled.jpg"/>
+    </TargetSet>
+</VuforiaUnityInfo>
