@@ -11,7 +11,7 @@ public class Watch : MonoBehaviour
     public GameObject MyGUI;
     public Renderer MyRenderer;
 
-    private float minSize = 4;
+    private float minSize = .01f;
     // Update is called once per frame
     void Update ()
     {
@@ -25,9 +25,9 @@ public class Watch : MonoBehaviour
         {
             // Get movement of the finger since last frame
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-            transform.parent.localScale += new Vector3(1, 1, 1) * TouchRescaleFactor * touchDeltaPosition.y;
-            if (transform.parent.localScale.x < minSize)
-                transform.parent.localScale = new Vector3(minSize, minSize, minSize);
+            transform.localScale += new Vector3(1, 1, 1) * TouchRescaleFactor * touchDeltaPosition.y;
+            if (transform.localScale.x < minSize)
+                transform.localScale = new Vector3(minSize, minSize, minSize);
         }
 
     }
