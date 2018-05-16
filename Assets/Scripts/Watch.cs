@@ -6,10 +6,12 @@ using System.Linq;
 
 public class Watch : MonoBehaviour
 {
+
     public float TouchRescaleFactor = .0001f;
     public GameObject MyGUI;
     public Renderer MyRenderer;
 
+    private float minSize = 4;
     // Update is called once per frame
     void Update ()
     {
@@ -23,9 +25,9 @@ public class Watch : MonoBehaviour
         {
             // Get movement of the finger since last frame
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-            transform.localScale += new Vector3(1, 1, 1) * TouchRescaleFactor * touchDeltaPosition.y;
-            if (transform.localScale.x < .01f)
-                transform.localScale = new Vector3(.01f, .01f, .01f);
+            transform.parent.localScale += new Vector3(1, 1, 1) * TouchRescaleFactor * touchDeltaPosition.y;
+            if (transform.parent.localScale.x < minSize)
+                transform.parent.localScale = new Vector3(minSize, minSize, minSize);
         }
 
     }
